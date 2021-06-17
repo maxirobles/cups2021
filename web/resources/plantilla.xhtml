@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />        
+        <h:outputStylesheet library="css" name="estilo.css" />
+        <title>..:: ACME Insumos ::..</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div id="contenedor">
+                <div id="top">
+                    <h1>ACME Distribuciones</h1>
+                    <h2>Insumos para peluquerías</h2>
+                    <br/>
+                    <ui:insert name="cabecera"></ui:insert>
+                </div>        
+                <div id="nav"> 
+                    <ul>                       
+                        <ui:insert name="menu"></ui:insert>
+                    </ul>                   
+
+                </div>
+                <div id="contenido">
+                    <ui:insert name="content">
+                    </ui:insert>
+                </div>
+                <div id="bottom">
+                    <ui:insert name="pie"></ui:insert>
+                    Laboratorio V - Año 2021
+                    <p>Alumno: ROBLES DAMIAN MAXIMILIANO</p>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+
+</html>

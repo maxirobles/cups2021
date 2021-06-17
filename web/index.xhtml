@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <ui:composition template="/resources/plantilla.xhtml">
+        <ui:define name="menu">                      
+            <li><h:commandLink value="Pedidos" action="vistas/Pedidos"/></li>
+            <li><h:commandLink value="Nuevo Pedido" action="vistas/nuevo_pedido"/></li>
+            <li><h:commandLink value="Borrar Pedido" action="vistas/BorrarPedido"/></li>
+        </ui:define>   
+    
+    <ui:define name="content">
+            <h:graphicImage library="imagenes" name="peluqueria_logo.png" height="350" width="400"/>
+            <h:graphicImage library="imagenes" name="peluqueria.png" height="350" width="400"/>
+                             
+     </ui:define>                  
+            
+            
+            <h:panelGrid rendered="#{indexBean.productos.size()==0}">
+                <h2>No hay productos en Stock.</h2>
+            </h:panelGrid>
+            <h:panelGrid rendered="#{indexBean.productos.size()>0}">
+                <h3>Listado de Productos</h3>
+                <h:dataTable value="#{indexBean.productos}" var="p" border="1"
+                             cellspacing="0">
+                    <h:column>
+                        <f:facet name="header">Codigo de pedido</f:facet>
+                        #{p.PedId}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Producto</f:facet>
+                        #{p.pedProducto}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Cantidad</f:facet>
+                        #{p.pedCantidad}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Fecha de Pedido</f:facet>
+                        <h:outputText value="#{p.pedFecha}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-03"/>
+                        </h:outputText>
+                    </h:column>                   
+                    <h:column>
+                        <f:facet name="header">Actualizado el</f:facet>
+                        <h:outputText value="#{p.prodFechaActualizacion}">
+                            <f:convertDateTime type="both"/>
+                        </h:outputText>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGrid>         
+        
+        
+        </ui:composition>    
+</html>
+
